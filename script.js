@@ -12,3 +12,19 @@ navLinks.forEach(link => {
         });
     });
 });
+// Portfolio Filter System
+const buttons = document.querySelectorAll('.project-filter button');
+const projects = document.querySelectorAll('.project');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const filter = this.getAttribute('data-filter');
+        projects.forEach(project => {
+            if (filter === 'all' || project.getAttribute('data-category') === filter) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    });
+});
