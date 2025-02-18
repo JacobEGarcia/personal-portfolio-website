@@ -5,7 +5,6 @@ navLinks.forEach(link => {
     e.preventDefault();
     const targetId = this.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetId);
-    // If section is found, scroll to it
     if (targetSection) {
       window.scrollTo({
         top: targetSection.offsetTop - 50,
@@ -31,12 +30,3 @@ filterButtons.forEach(button => {
     });
   });
 });
-
-// Light and Dark Mode Toggle
-const modeToggle = document.getElementById('modeToggle');
-modeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  document.body.classList.toggle('dark-mode');
-  modeToggle.querySelector('i').classList.toggle('rotate');
-});
-
