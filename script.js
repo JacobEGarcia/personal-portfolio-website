@@ -28,3 +28,11 @@ buttons.forEach(button => {
         });
     });
 });
+
+// Light and Dark Mode Toggle
+const modeToggle = document.getElementById('modeToggle');
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    modeToggle.querySelector('i').classList.toggle('rotate');
+});
