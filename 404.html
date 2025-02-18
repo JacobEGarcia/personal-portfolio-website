@@ -1,73 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Torusaynim">
-    <title>The End of the Internet</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        html, body {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .page {
-            color: #fff;
-            text-transform: uppercase;
-            font-family: Times New Roman;
-            font-weight: 900;
-            padding: 3.3333333333333335vw;
-            padding-top: 5vw;
-        }
-        .small-line {
-            font-size: 5.833333333333333vw;
-            transform: scale(1,1.5);
-            line-height: 1.2;
-        }
-        .large-line {
-            font-size: 8.333333333333334vw;
-            transform: scale(1,1.5);
-            line-height: 1.2;
-        }
-        .error {
-            margin-top: 3.3333333333333335vw;
-            margin-bottom: 0.5833333333333334vw;
-            font-size: 3vw;
-            font-family: Helvetica;
-            transform: scale(1,1.5);
-            font-weight: 600;
-        }
-        .title {
-            margin-top: 1.6666666666666667vw;
-            font-size: 5vw;
-            font-family: Helvetica;
-            transform: scale(1,1.5);
-            font-weight: 600;
-            line-height: .9;
-            float: right;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="author" content="Torusaynim">
+  <title>404 - Page Not Found | The End of the Internet</title>
+  <!-- SEO & Open Graph Meta Tags -->
+  <meta name="description" content="The requested page could not be found. It seems the internet has reached its end." />
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="404 - Page Not Found" />
+  <meta property="og:description" content="The requested page could not be found." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/404.html" />
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "404 - Page Not Found",
+    "description": "The requested page could not be found."
+  }
+  </script>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA measurement ID
+  </script>
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #ff4d4d;
+    }
+    /* 404 Page Specific Styles */
+    .page {
+      text-transform: uppercase;
+      font-weight: 900;
+      padding: 3.333vw;
+      padding-top: 5vw;
+      text-align: center;
+      color: #fff;
+    }
+    .small-line {
+      font-size: 5.833vw;
+      transform: scale(1, 1.5);
+      line-height: 1.2;
+    }
+    .large-line {
+      font-size: 8.333vw;
+      transform: scale(1, 1.5);
+      line-height: 1.2;
+    }
+    .error {
+      margin-top: 3.333vw;
+      margin-bottom: 0.583vw;
+      font-size: 3vw;
+      transform: scale(1, 1.5);
+      font-weight: 600;
+    }
+    .title {
+      margin-top: 1.667vw;
+      font-size: 5vw;
+      transform: scale(1, 1.5);
+      font-weight: 600;
+      line-height: 0.9;
+    }
+    /* Accessibility Focus Style */
+    a:focus {
+      outline: 2px dashed #008080;
+      outline-offset: 2px;
+    }
+  </style>
 </head>
 <body>
-    <div class="page">
+  <div class="page" role="main">
     <div class="small-line">oops</div>
     <div class="small-line">something</div>
     <div class="large-line">went wrong</div>
     <div class="error">error:404</div>
-    <!-- don't forget to put your home page link instead of # -->
-    <div class="title"><a href="index.html">take me back</a></div>
-    </div>
+    <!-- Home page link -->
+    <div class="title"><a href="index.html" tabindex="0">take me back</a></div>
+  </div>
 </body>
 </html>
