@@ -1,118 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A personal portfolio website showcasing projects, blog posts, and professional information.">
-    <title>Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A personal portfolio website showcasing projects, blog posts, and professional information.">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-       
-        <button class="mode-toggle" id="modeToggle">
-            <i class="fas fa-sun"></i>
-        </button></nav>
-    </header>
-    <main>
-        <!-- About Me Section -->
-        <section id="about">
-            <h1>About Me</h1>
-            <p>Professional bio an<img src="avatar.jpg" alt="Professional Headshot" class="avatar">
-<p>Hi, I'm [Your Name], a passionate software developer with expertise in web development and a keen interest in building innovative solutions. I have a strong background in JavaScript, Python, and modern web technologies. I enjoy working on projects that challenge me and allow me to grow as a developer.</p>
-<p>Key Skills:</p>
-<ul>
-    <li>JavaScript (React, Node.js)</li>
-    <li>Python (Django, Flask)</li>
-    <li>HTML5 & CSS3</li>
-    <li>Responsive Design</li>
-    <li>Version Control (Git)</li>
-</ul>
-<p>When I'm not coding, I love hiking, photography, and exploring new technologies. I'm always eager to learn and collaborate on exciting projects.</p>
-        </section>
-        <!-- Blog Section -->
-        <section id="blog">
-            <h1>Blog</h1><div class="blog-container">
-    <article class="blog-post">
-        <h2>Post Title 1</h2>
-        <p>Reading Time: 5 mins</p>
-        <p>Category: Web Development</p>
-        <p>Summary of the blog post...</p>
-        <a href="#">Read More</a>
-    </article>
-    <article class="blog-post">
-        <h2>Post Title 2</h2>
-        <p>Reading Time: 8 mins</p>
-        <p>Category: JavaScript</p>
-        <p>Summary of the blog post...</p>
-        <a href="#">Read More</a>
-    </article>
-    <!-- Add more blog posts as needed -->
-</div>
-<div class="comments-section">
-    <h3>Comments</h3>
-    <p>Comments integration coming soon...</p>
-</div>
-        </section>
-        <!-- Portfolio Section -->
-        <section id="portfolio">
-            <h1>Portfolio</h1>
-            <p>Project showcases a<div class="portfolio-container">
-    <div class="project" data-category="web-development">
-        <img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail">
-        <h3>Project 1</h3>
-        <p>Technologies: HTML, CSS, JavaScript</p>
-        <p>Description: A web development project...</p>
-        <a href="https://github.com/yourusername/project1">GitHub Repository</a>
-        <a href="https://yourusername.github.io/project1">Live Demo</a>
-    </div>
-    <div class="project" data-category="game-development">
-        <img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail">
-        <h3>Project 2</h3>
-        <p>Technologies: Unity, C#</p>
-        <p>Description: A game development project...</p>
-        <a href="https://github.com/yourusername/project2">GitHub Repository</a>
-        <a href="https://yourusername.github.io/project2">Live Demo</a>
-    </div>
-    <!-- Add more projects as needed -->
-</div>
-<div class="project-filter">
-    <button data-filter="all">All</button>
-    <button data-filter="web-development">Web Development</button>
-    <button data-filter="game-development">Game Development</button>
-    <!-- Add more filters as needed -->
-</div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact">
-            <h1>Contact</h1>
-            <p>Contact information<p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">Your LinkedIn Profile</a></p>
-<p>GitHub: <a href="https://github.com/yourusername">Your GitHub Profile</a></p>
-<p>Twitter: <a href="https://twitter.com/yourhandle">@yourhandle</a></p>
-<form>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" required><br><br>
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="4" required></textarea><br><br>
-    <input type="submit" value="Send Message">
-</form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Personal Portfolio</p>
-    </footer>
-    <script src="script.js"></script>
+<body class="light-mode">
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="top-nav">
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Light/Dark Mode Toggle -->
+      <button class="mode-toggle" id="modeToggle" aria-label="Theme toggle">
+        <i class="fas fa-sun"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About Me Section -->
+    <section id="about">
+      <h1>About Me</h1>
+      <img src="avatar.jpg" alt="Professional Headshot" class="avatar">
+      <p>Hello, I’m <strong>[Your Name]</strong>, a passionate software developer with a keen interest in creating innovative web solutions. I enjoy building projects that challenge me, and I strive to learn something new each day.</p>
+      <p>My background includes:</p>
+      <ul>
+        <li>JavaScript (React, Node.js)</li>
+        <li>Python (Django, Flask)</li>
+        <li>HTML5 &amp; CSS3</li>
+        <li>Responsive Web Design</li>
+        <li>Version Control (Git)</li>
+      </ul>
+      <p>Outside of coding, I enjoy hiking, photography, and exploring emerging technologies. If you’d like to collaborate or simply chat, feel free to reach out!</p>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+      <h1>Blog</h1>
+      <div class="blog-container">
+        <article class="blog-post">
+          <h2>Post Title 1</h2>
+          <p><em>Reading Time: 5 mins</em> • Category: Web Development</p>
+          <p>Short summary of the blog post content…</p>
+          <a href="#">Read More</a>
+        </article>
+        <article class="blog-post">
+          <h2>Post Title 2</h2>
+          <p><em>Reading Time: 8 mins</em> • Category: JavaScript</p>
+          <p>Short summary of the blog post content…</p>
+          <a href="#">Read More</a>
+        </article>
+      </div>
+      <div class="comments-section">
+        <h3>Comments</h3>
+        <p>Comments integration coming soon…</p>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <h1>Portfolio</h1>
+      <p>Below are some of my favorite personal and professional projects. Feel free to filter them by category or explore them all!</p>
+      <div class="project-filter">
+        <button data-filter="all" class="filter-btn">All</button>
+        <button data-filter="web-development" class="filter-btn">Web Development</button>
+        <button data-filter="game-development" class="filter-btn">Game Development</button>
+      </div>
+      <div class="portfolio-container">
+        <div class="project" data-category="web-development">
+          <img src="project1-thumbnail.jpg" alt="Project 1 Screenshot">
+          <h3>Project 1</h3>
+          <p>Technologies: HTML, CSS, JavaScript</p>
+          <p>Description: A web development project...</p>
+          <a href="https://github.com/yourusername/project1" target="_blank">GitHub</a>
+          <a href="https://yourusername.github.io/project1" target="_blank">Live Demo</a>
+        </div>
+        <div class="project" data-category="game-development">
+          <img src="project2-thumbnail.jpg" alt="Project 2 Screenshot">
+          <h3>Project 2</h3>
+          <p>Technologies: Unity, C#</p>
+          <p>Description: A game development project...</p>
+          <a href="https://github.com/yourusername/project2" target="_blank">GitHub</a>
+          <a href="https://yourusername.github.io/project2" target="_blank">Live Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Please feel free to reach out via email or find me on LinkedIn, GitHub, and Twitter. I’m always open to discussing new projects or creative ideas.</p>
+      <ul class="contact-info">
+        <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">Your LinkedIn Profile</a></li>
+        <li>GitHub: <a href="https://github.com/yourusername" target="_blank">Your GitHub Profile</a></li>
+        <li>Twitter: <a href="https://twitter.com/yourhandle" target="_blank">@yourhandle</a></li>
+      </ul>
+
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
+
