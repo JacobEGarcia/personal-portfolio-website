@@ -1,7 +1,8 @@
 /**
  * script.js
  * Contains interactivity for dark/light mode toggle, smooth scrolling,
- * progress bar update, project filtering, search functionality, and more.
+ * progress bar update, project filtering, lazy loading, basic toast notifications,
+ * and placeholder code for advanced interactivity features.
  */
 
 // Dark/Light Mode Toggle with system preference detection
@@ -12,13 +13,11 @@ const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 function setTheme(theme) {
   document.body.classList.remove('dark-mode', 'light-mode');
   document.body.classList.add(theme);
-  // Update toggle icon
   toggleIcon.textContent = theme === 'dark-mode' ? '🌙' : '☀️';
-  // Optionally, store preference in localStorage
   localStorage.setItem('theme', theme);
 }
 
-// Initialize theme based on system preference or stored value
+// Initialize theme
 const storedTheme = localStorage.getItem('theme');
 if (storedTheme) {
   setTheme(storedTheme);
@@ -39,10 +38,7 @@ navLinks.forEach(link => {
     const targetId = link.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 70,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
     }
   });
 });
@@ -52,15 +48,12 @@ const progressBar = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
   const scrollTop = document.documentElement.scrollTop;
   const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (scrollTop / docHeight) * 100;
-  progressBar.style.width = scrolled + "%";
+  progressBar.style.width = ((scrollTop / docHeight) * 100) + "%";
 });
 
 // Floating "Back to Top" Button
 const backToTop = document.getElementById('backToTop');
-backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 window.addEventListener('scroll', () => {
   backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
 });
@@ -68,10 +61,8 @@ window.addEventListener('scroll', () => {
 // Portfolio Filter System
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projects = document.querySelectorAll('.project');
-
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    // Update active button style
     filterButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
     const filter = button.getAttribute('data-filter');
@@ -82,26 +73,57 @@ filterButtons.forEach(button => {
   });
 });
 
-// Basic Search Functionality for Blog Posts (placeholder)
+// Basic Search Functionality for Blog Posts
 const searchInput = document.getElementById('siteSearch');
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
   const posts = document.querySelectorAll('.blog-post');
   posts.forEach(post => {
-    const text = post.textContent.toLowerCase();
-    post.style.display = text.includes(query) ? 'block' : 'none';
+    post.style.display = post.textContent.toLowerCase().includes(query) ? 'block' : 'none';
   });
 });
 
-// Contact Form Validation (basic)
+// Contact Form Validation and Toast Notification (basic)
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', e => {
   e.preventDefault();
-  // Validate form fields here (or integrate with a validation library)
-  // For demonstration, display a simple toast notification (placeholder)
-  alert('Thank you for your message! We will be in touch soon.');
+  // Placeholder: Validate form fields here
+  showToast('Thank you for your message! We will be in touch soon.');
   contactForm.reset();
 });
 
-// Placeholder: Initialize additional features such as infinite scroll,
-// lazy loading, analytics integration, toast notifications, and more.
+// Toast Notification Function (basic implementation)
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.setAttribute('role', 'alert');
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => { toast.classList.add('visible'); }, 100);
+  setTimeout(() => {
+    toast.classList.remove('visible');
+    setTimeout(() => document.body.removeChild(toast), 300);
+  }, 3000);
+}
+
+// Lazy Loading Images using IntersectionObserver
+function initLazyLoading() {
+  const lazyImages = document.querySelectorAll('img.lazy');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.getAttribute('data-src');
+        img.classList.remove('lazy');
+        observer.unobserve(img);
+      }
+    });
+  });
+  lazyImages.forEach(img => observer.observe(img));
+}
+initLazyLoading();
+
+// Placeholder: Advanced Interactivity Features
+// For example, infinite scroll, animated reveal on scroll, and dynamic page transitions can be integrated here
+// by replacing these placeholders with libraries like IntersectionObserver (for reveal) and others.
+
