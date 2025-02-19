@@ -83,6 +83,17 @@ a:focus, button:focus, input:focus {
   padding: 0.75rem 1rem;
 }
 
+/* New styles for light mode header */
+body.light-mode .site-header {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--accent-silver);
+}
+
+body.light-mode .site-header a {
+  color: var(--primary-dark);
+}
+
 .top-nav {
   display: flex;
   align-items: center;
@@ -384,4 +395,3 @@ form button[type="submit"]:hover {
     margin: 0 auto 1rem;
   }
 }
-
